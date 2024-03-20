@@ -6,7 +6,7 @@ function HeaderBar() {
     <div>
       <Header />
 
-      <div className="flex flex-col min-h-screen ">
+      <div className="flex flex-col">
         <nav className="px-4 py-2 flex justify-evenly items-center">
           <h1 className="text-2xl font-bold">XYZ</h1>
 
@@ -57,7 +57,7 @@ function HeaderBar() {
             <a href="#" className="hover:underline">
               En
             </a>
-            <button className="bg-indigo-500 p-3 text-white rounded-lg w-32">
+            <button className="bg-[#6060f4] p-3 text-white rounded-lg w-32">
               Contact
             </button>
           </div>
