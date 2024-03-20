@@ -5,7 +5,7 @@ import herosectionImage from "../../assets/herosection.png";
 function HeroSection() {
   return (
     <section className=" py-8">
-      <div className="container h-[70vh] mx-auto flex flex-col md:flex-row items-center  px-4 ">
+      <div className="container h-[60vh] mx-auto flex flex-col md:flex-row items-center  px-4 ">
 
         <div className="text-center md:text-left  w-1/2">
         <h2 className="text-[5rem] font-bold mb-2 text-[#151b57] leading-none  " style={{ width: 'fit-content' }}>The Cheapest <br /> Textbooks</h2>
