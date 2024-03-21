@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :books, only: [:show]
+  get 'books/:isbn', to: 'books#show', constraints: { isbn: /[\d-]+/ }, as: 'book_by_isbn'
 end
