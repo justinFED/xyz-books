@@ -49,8 +49,31 @@ class BooksController < ApplicationController
     check_digit = isbn_13_prefix.chars.each_with_index.sum { |c, i| c.to_i * (i.even? ? 1 : 3) }
     check_digit = (10 - (check_digit % 10)) % 10
     converted_isbn = isbn_13_prefix + check_digit.to_s
-    converted_isbn.insert(3, '-').insert(6, '-').insert(10, '-').insert(15, '-')
+    
+    # Adjust hyphen placement based on the 5th digit of ISBN10
+    if isbn_10[2] == '8'
+      converted_isbn = converted_isbn.insert(3, '-').insert(5, '-').insert(12, '-').insert(15, '-')  # Adjust hyphen placement for ISBN10 pattern with 5th digit 8
+    else
+      converted_isbn = converted_isbn.insert(3, '-').insert(5, '-').insert(11, '-').insert(15, '-')  # Adjust hyphen placement for ISBN10 pattern with 5th digit 0
+    end
+    
+    converted_isbn
   end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
   
   def convert_to_isbn10(isbn_13)
     return unless valid_isbn13?(isbn_13)
@@ -62,9 +85,18 @@ class BooksController < ApplicationController
     end
     check_digit = (11 - (sum % 11)) % 11
     check_digit = check_digit == 10 ? 'X' : check_digit.to_s
-    converted_isbn = isbn_10_prefix[0..0] + '-' + isbn_10_prefix[1..3] + '-' + isbn_10_prefix[4..8] + '-' + check_digit.to_s
+    
+    # Adjust hyphen placement based on the 5th digit of ISBN13
+    if isbn_13[4] == '0'
+      converted_isbn = isbn_10_prefix[0..0] + '-' + isbn_10_prefix[1..2] + '-' + isbn_10_prefix[3..7] + '-' + check_digit.to_s
+    else
+      converted_isbn = isbn_10_prefix[0..0] + '-' + isbn_10_prefix[1..3] + '-' + isbn_10_prefix[4..8] + '-' + check_digit.to_s
+    end
+    
     converted_isbn
   end
+  
+  
   
   def render_book_info(book)
     authors = book.authors.map(&:full_name).join(', ')
