@@ -1,15 +1,15 @@
 class BooksController < ApplicationController
   def show
     isbn = params[:isbn]
-    book = Book.find_by(isbn_13: isbn)
-
+    book = Book.find_by(isbn_13: isbn) || Book.find_by(isbn_10: isbn)
+  
     if book
       render_book_info(book)
     else
       render json: { message: "Book not found" }, status: :not_found
     end
   end
-
+  
   def convert_isbn
     isbn = params[:isbn]
     converted_isbn = if valid_isbn13?(isbn)
