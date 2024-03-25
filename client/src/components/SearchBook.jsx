@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header/Header";
 import { useNavigate } from "react-router-dom";
 
-function BookPage() {
+function SearchBook() {
   const [bookData, setBookData] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [error, setError] = useState("");
@@ -95,4 +95,4 @@ function BookPage() {
   );
 }
 
-export default BookPage;
+export default SearchBook;
