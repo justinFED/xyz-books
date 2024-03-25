@@ -22,10 +22,6 @@ function BookPage() {
     return false;
   };
   
-  
-  
-  
-
   const fetchBookData = async (isbn) => {
     try {
       setLoading(true);
@@ -63,7 +59,6 @@ function BookPage() {
 
   return (
     <div>
-      <Header />
       <div className="container mx-auto">
         <div className="py-8">
           <div className="flex justify-center">
