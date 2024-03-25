@@ -10,15 +10,19 @@ function BookPage() {
   const navigate = useNavigate();
 
   const isValidISBN = (isbn) => {
+
     const isbnDigitsOnly = isbn.replace(/-/g, '');
     if (isbnDigitsOnly.length === 10 || isbnDigitsOnly.length === 13) {
       if (isbnDigitsOnly.length === 10) {
-        return /^[0-9]{9}[0-9X]$/.test(isbnDigitsOnly.toUpperCase());
+        return /^[0-9]{9}[0-9X]$/i.test(isbnDigitsOnly);
+      } else {
+        return /^[0-9]+$/i.test(isbnDigitsOnly);
       }
-      return /^[0-9]+$/.test(isbnDigitsOnly);
     }
     return false;
   };
+  
+  
   
   
 
