@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Header from "./Header/Header";
 import { useNavigate } from "react-router-dom";
 
-function SearchBook() {
+function SearchBook({ onSearch }) {
   const [bookData, setBookData] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [error, setError] = useState("");
@@ -10,8 +9,7 @@ function SearchBook() {
   const navigate = useNavigate();
 
   const isValidISBN = (isbn) => {
-
-    const isbnDigitsOnly = isbn.replace(/-/g, '');
+    const isbnDigitsOnly = isbn.replace(/-/g, "");
     if (isbnDigitsOnly.length === 10 || isbnDigitsOnly.length === 13) {
       if (isbnDigitsOnly.length === 10) {
         return /^[0-9]{9}[0-9X]$/i.test(isbnDigitsOnly);
@@ -21,7 +19,7 @@ function SearchBook() {
     }
     return false;
   };
-  
+
   const fetchBookData = async (isbn) => {
     try {
       setLoading(true);
@@ -34,6 +32,21 @@ function SearchBook() {
 
       const data = await response.json();
       setBookData(data);
+      onSearch(
+
+        <div>
+          <h1>Search Result</h1>
+          <h2 className="text-xl font-semibold mb-2">{data.title}</h2>
+          <p>Authors: {data.authors.split(", ").join(", ")}</p>
+          <p>Edition: {data.edition}</p>
+          <p>Price: {data.price}</p>
+          <p>ISBN: {data.isbn_13}</p>
+          <p>Publication Year: {data.publication_year}</p>
+          <p>Publisher: {data.publisher}</p>
+        </div>
+
+        
+      );
     } catch (error) {
       console.error("Error fetching book data:", error);
       setError("An error occurred while fetching book data.");
@@ -78,17 +91,6 @@ function SearchBook() {
           </div>
           {error && <p className="text-red-500">{error}</p>}
           {loading && <p>Loading...</p>}
-          {bookData && !loading && (
-            <div>
-              <h2 className="text-xl font-semibold mb-2">{bookData.title}</h2>
-              <p>Authors: {bookData.authors.split(", ").join(", ")}</p>
-              <p>Edition: {bookData.edition}</p>
-              <p>Price: {bookData.price}</p>
-              <p>ISBN: {bookData.isbn_13}</p>
-              <p>Publication Year: {bookData.publication_year}</p>
-              <p>Publisher: {bookData.publisher}</p>
-            </div>
-          )}
         </div>
       </div>
     </div>
