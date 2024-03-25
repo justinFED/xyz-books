@@ -6,50 +6,57 @@ function BookPage() {
   const [bookData, setBookData] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const isValidISBN = (isbn) => {
-    return isbn.length === 10 || isbn.length === 13;
+    const isbnDigitsOnly = isbn.replace(/-/g, '');
+    if (isbnDigitsOnly.length === 10 || isbnDigitsOnly.length === 13) {
+      if (isbnDigitsOnly.length === 10) {
+        return /^[0-9]{9}[0-9X]$/.test(isbnDigitsOnly.toUpperCase());
+      }
+      return /^[0-9]+$/.test(isbnDigitsOnly);
+    }
+    return false;
   };
+  
+  
 
   const fetchBookData = async (isbn) => {
     try {
-      setLoading(true); 
-      setError(""); 
-  
+      setLoading(true);
+      setError("");
+
       const response = await fetch(`http://127.0.0.1:3000/books/${isbn}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-   
+
       const data = await response.json();
       setBookData(data);
-  
     } catch (error) {
       console.error("Error fetching book data:", error);
       setError("An error occurred while fetching book data.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
-  
 
   const handleSearch = async () => {
     try {
       setError("");
-      const isbn = searchInput;
+      let isbn = searchInput.trim();
       if (!isValidISBN(isbn)) {
         setError("Invalid ISBN");
         return;
       }
-      await fetchBookData(isbn); 
+      await fetchBookData(isbn);
     } catch (error) {
       console.error("Error fetching book data:", error);
       setError("An error occurred while fetching book data.");
     }
   };
-  
+
   return (
     <div>
       <Header />
@@ -71,13 +78,13 @@ function BookPage() {
             </button>
           </div>
           {error && <p className="text-red-500">{error}</p>}
-          {loading && <p>Loading...</p>} 
+          {loading && <p>Loading...</p>}
           {bookData && !loading && (
             <div>
               <h2 className="text-xl font-semibold mb-2">{bookData.title}</h2>
-              <p>Authors: {bookData.authors.split(', ').join(', ')}</p>
+              <p>Authors: {bookData.authors.split(", ").join(", ")}</p>
               <p>Edition: {bookData.edition}</p>
-              <p>Price: PHP {bookData.price}</p>
+              <p>Price: {bookData.price}</p>
               <p>ISBN: {bookData.isbn_13}</p>
               <p>Publication Year: {bookData.publication_year}</p>
               <p>Publisher: {bookData.publisher}</p>
