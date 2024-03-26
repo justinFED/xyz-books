@@ -8,7 +8,8 @@ function Header() {
       className="text-center p-2 text-white font-medium text-sm flex items-center justify-center"
       style={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover"
+        backgroundSize: "cover",
+        backgroundPosition: 'center'
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>

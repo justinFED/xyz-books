@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import SearchBook from "../SearchBook";
+import Logo from "../../assets/sample-logo.svg"
+import Icon from "../../assets/Icon-feather-globe.svg"
 
 function HeaderBar({ onSearch }) {
   return (
@@ -9,7 +11,7 @@ function HeaderBar({ onSearch }) {
 
       <div className="flex flex-col">
         <nav className="px-4 py-2 flex justify-evenly items-center">
-          <h1 className="text-2xl font-bold">XYZ</h1>
+        <img src={Logo} alt="XYZ" />
 
           <SearchBook onSearch={onSearch} />
 
@@ -35,11 +37,13 @@ function HeaderBar({ onSearch }) {
               </a>
             </li>
           </ul>
-          <div className="flex flex-row items-center gap-5">
-            <a href="#" className="hover:underline">
+          <div className="flex flex-row items-center gap-5 ">
+          
+            <a href="#" className="hover:underline flex gap-2">
+            <img src={Icon} alt="XYZ" />
               En
             </a>
-            <button className="bg-[#6060f4] p-3 text-white rounded-lg w-32">
+            <button className="bg-[#6060f4] p-3 text-white rounded-lg w-32 font-semibold">
               Contact
             </button>
           </div>
