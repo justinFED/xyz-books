@@ -72,7 +72,7 @@ function SearchBook({ onSearch }) {
   return (
     <div>
       <div className="container mx-auto">
-        <div className="py-8">
+        <div className="py-8 ">
           <div className="flex justify-center">
             <input
               className="appearance-none bg-transparent border border-gray-300 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none"

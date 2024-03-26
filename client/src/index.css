@@ -4,6 +4,12 @@
 
 
 @font-face {
+  font-family: 'Caveat';
+  font-weight: 700;
+  src: url('../public/font/Caveat.ttf') format('opentype');
+}
+
+@font-face {
   font-family: 'Lexend';
   font-weight: 400;
   src: url('../public/font/Lexend.ttf') format('opentype');
