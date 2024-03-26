@@ -33,19 +33,18 @@ function SearchBook({ onSearch }) {
       const data = await response.json();
       setBookData(data);
       onSearch(
-
-        <div>
-          <h1>Search Result</h1>
-          <h2 className="text-xl font-semibold mb-2">{data.title}</h2>
-          <p>Authors: {data.authors.split(", ").join(", ")}</p>
-          <p>Edition: {data.edition}</p>
-          <p>Price: {data.price}</p>
-          <p>ISBN: {data.isbn_13}</p>
-          <p>Publication Year: {data.publication_year}</p>
-          <p>Publisher: {data.publisher}</p>
+        <div className="container mx-auto h-[60vh] flex flex-col justify-center bg-slate-500">
+          <h1 className="text-2xl mb-4 bg-slate-500">Search Result</h1>
+          <div className="max-w-lg p-8 border rounded-md shadow-sm">
+            <h2 className="text-xl font-semibold mb-2">Book Title</h2>
+            <p>Authors: John Doe, Jane Doe</p>
+            <p>Edition: 1</p>
+            <p>Price: $25.00</p>
+            <p>ISBN: 978-1234567890</p>
+            <p>Publication Year: 2023</p>
+            <p>Publisher: Mega Publishing Inc.</p>
+          </div>
         </div>
-
-        
       );
     } catch (error) {
       console.error("Error fetching book data:", error);
