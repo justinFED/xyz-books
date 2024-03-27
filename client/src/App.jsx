@@ -22,7 +22,7 @@ function App() {
         }}
       >
         <HeaderBar onSearch={handleSearchResults} />
-        <main className="flex-1">{searchResults || <HeroSection />}</main>
+        <main className="flex-1">{searchResults === null ? <HeroSection /> : searchResults}</main>
         <footer className="bg-blue-500 text-center py-4">Footer</footer>
       </div>
     </Router>

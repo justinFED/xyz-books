@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import SearchIcon from "../assets/Icon-feather-search.svg";
 
 function SearchBook({ onSearch }) {
-  const [bookData, setBookData] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,7 +31,6 @@ function SearchBook({ onSearch }) {
       }
 
       const data = await response.json();
-      setBookData(data);
       onSearch(
         <div className="container mx-auto flex flex-col justify-center place-items-start ">
           <h1 className="text-3xl mb-4  w-full py-8 font-bold">
@@ -60,6 +58,8 @@ function SearchBook({ onSearch }) {
   useEffect(() => {
     if (searchInput.trim() !== "") {
       handleSearch();
+    } else {
+      onSearch(null);
     }
   }, [searchInput]);
 
