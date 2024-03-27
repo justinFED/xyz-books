@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SearchIcon from "../assets/Icon-feather-search.svg";
 
 function SearchBook({ onSearch }) {
   const [bookData, setBookData] = useState(null);
@@ -34,7 +35,9 @@ function SearchBook({ onSearch }) {
       setBookData(data);
       onSearch(
         <div className="container mx-auto flex flex-col justify-center place-items-start ">
-          <h1 className="text-3xl mb-4  w-full py-8 font-bold">Search Result</h1>
+          <h1 className="text-3xl mb-4  w-full py-8 font-bold">
+            Search Result
+          </h1>
           <div className="w-full max-w-lg p-8 border rounded-md shadow-sm">
             <h2 className="text-xl font-semibold mb-2">{data.title}</h2>
             <p>by {data.authors.split(", ").join(", ")}</p>
@@ -53,6 +56,12 @@ function SearchBook({ onSearch }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (searchInput.trim() !== "") {
+      handleSearch();
+    }
+  }, [searchInput]);
 
   const handleSearch = async () => {
     try {
@@ -73,21 +82,24 @@ function SearchBook({ onSearch }) {
     <div>
       <div className="container mx-auto">
         <div className="py-8 ">
-          <div className="flex justify-center">
+          <div className="relative">
             <input
-              className="appearance-none bg-transparent border border-gray-300 rounded w-64 py-2 px-4 text-gray-700 leading-tight focus:outline-none"
+              className="appearance-none bg-transparent border border-[#6060f4] rounded-3xl w-64 py-2 px-4 pl-10 text-gray-700 leading-tight focus:outline-none z-10"
               type="text"
-              placeholder="Enter ISBN"
+              placeholder=""
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
             />
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2"
-              onClick={handleSearch}
-            >
+            <img
+              src={SearchIcon}
+              alt="Search Icon"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 w-5 h-5"
+            />
+            <span className="absolute left-10 top-1/2 transform -translate-y-1/2 z-20 text-gray-500">
               Search
-            </button>
+            </span>
           </div>
+
           {error && <p className="text-red-500">{error}</p>}
           {loading && <p>Loading...</p>}
         </div>
