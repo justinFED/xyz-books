@@ -49,7 +49,7 @@ function SearchBook({ onSearch }) {
       );
     } catch (error) {
       console.error("Error fetching book data:", error);
-      setError("An error occurred while fetching book data.");
+      setError("Invalid ISBN");
     } finally {
       setLoading(false);
     }
@@ -70,6 +70,7 @@ function SearchBook({ onSearch }) {
       let isbn = searchInput.trim();
       if (!isValidISBN(isbn)) {
         setError("Invalid ISBN");
+        onSearch(null);
         return;
       }
       await fetchBookData(isbn);
