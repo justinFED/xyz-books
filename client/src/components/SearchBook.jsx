@@ -59,6 +59,7 @@ function SearchBook({ onSearch }) {
     if (searchInput.trim() !== "") {
       handleSearch();
     } else {
+      setError("");
       onSearch(null);
     }
   }, [searchInput]);
@@ -82,6 +83,7 @@ function SearchBook({ onSearch }) {
     <div>
       <div className="container mx-auto">
         <div className="py-8 ">
+          
           <div className="relative">
             <input
               className="appearance-none bg-transparent border border-[#6060f4] rounded-3xl w-64 py-2 px-4 pl-10 text-gray-700 leading-tight focus:outline-none z-10"
@@ -90,15 +92,19 @@ function SearchBook({ onSearch }) {
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
             />
+            
             <img
               src={SearchIcon}
               alt="Search Icon"
               className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 w-5 h-5"
             />
+            
           </div>
 
-          {error && <p className="text-red-500">{error}</p>}
+          <div className="items-center justify-center flex">
+          {error && <p className="text-red-500 ">{error}</p>}
           {loading && <p>Loading...</p>}
+          </div>
         </div>
       </div>
     </div>
