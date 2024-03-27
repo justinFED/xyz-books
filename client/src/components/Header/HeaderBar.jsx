@@ -1,5 +1,5 @@
 import Header from "./Header";
-import SearchBook from "../SearchBook";
+import SearchBook from "../SearchBook/SearchBook";
 import Logo from "../../assets/sample-logo.svg";
 import Icon from "../../assets/Icon-feather-globe.svg";
 import Arrow from "../../assets/XMLID_2331_.svg";

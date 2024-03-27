@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import SearchIcon from "../assets/Icon-feather-search.svg";
+import SearchIcon from "../../assets/Icon-feather-search.svg";
 
 function SearchBook({ onSearch }) {
   const [searchInput, setSearchInput] = useState("");
