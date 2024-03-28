@@ -41,7 +41,7 @@ function SearchBook({ onSearch }) {
             <p>by {data.authors.split(", ").join(", ")}</p>
             <p>Edition: {data.edition}</p>
             <p>Price: PHP {data.price}</p>
-            <p>ISBN: {data.isbn_13}</p>
+            <p>ISBN: {searchInput.length === 10 ? data.isbn_13 : searchInput.length === 13 ? data.isbn_13 : data.isbn_10}</p>
             <p>Publication Year: {data.publication_year}</p>
             <p>Publisher: {data.publisher}</p>
           </div>
