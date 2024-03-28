@@ -9,7 +9,7 @@ function HeaderBar({ onSearch }) {
     <div>
       <Header />
       <div>
-        <nav className=" px-4  flex justify-evenly items-center m-0 p-0">
+        <nav className=" px-4  flex justify-evenly items-center">
           <img src={Logo} alt="Logo" />
           <SearchBook onSearch={onSearch} />
           <ul className="flex space-x-16 ">
@@ -45,7 +45,9 @@ function HeaderBar({ onSearch }) {
           </div>
         </nav>
         <div className="container  px-4 mx-auto flex justify-end items-end gap-4 ">
-          <p className="font-[caveat] text-[#5ed0f9] origin-bottom -rotate-12 text-lg">Inquire us now to <br /> avail discounts!</p>
+          <p className="font-[caveat] text-[#5ed0f9] origin-bottom -rotate-12 text-lg">
+            Inquire us now to <br /> avail discounts!
+          </p>
           <img src={Arrow} alt="Arrow" />
         </div>
       </div>

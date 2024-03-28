@@ -2,11 +2,11 @@ import herosectionImage from "../../assets/hero-illustration.svg";
 
 function HeroSection() {
   return (
-    <section>
-      <div className="container h-[70vh] mx-auto flex flex-col md:flex-row items-center  px-4 ">
+    <section className="container mx-auto px-4 py-8 md:py-16">
+      <div className="flex flex-col md:flex-row items-center">
         <div className="text-center md:text-left  w-1/2">
           <h2
-            className="text-[5rem] font-bold mb-2 text-[#151b57] leading-none  "
+            className="text-[5rem] font-bold mb-2 text-[#151b57] leading-none tracking-wider "
             style={{ width: "fit-content" }}
           >
             The Cheapest <br /> Textbooks
@@ -19,7 +19,7 @@ function HeroSection() {
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna.
           </p>
-          <button className="bg-[#6060f4] hover:bg-blue-700 text-white px-9 py-3 rounded mt-4 focus:outline-none">
+          <button className="bg-[#6060f4] hover:bg-blue-700 text-white px-9 py-3 rounded-lg mt-4 focus:outline-none">
             Get Started >
           </button>
         </div>
@@ -29,7 +29,6 @@ function HeroSection() {
             src={herosectionImage}
             alt="Textbooks"
             className="object-cover mt-4 md:mt-0 w-full h-full"
-            style={{ maxWidth: "650px", maxHeight: "650px" }}
           />
         </div>
       </div>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import HeaderBar from "./components/Header/HeaderBar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import backgroundImage from "./assets/banner-bg.png";
+import CommitmentSection from "./components/CommitmentSection/CommitmentSection";
 
 function App() {
   const [searchResults, setSearchResults] = useState(null);
@@ -22,13 +23,14 @@ function App() {
         }}
       >
         <HeaderBar onSearch={handleSearchResults} />
-        <main className="flex-1">
+        <main className="flex-1 ">
           {searchResults === null ? (
             <div>
               <HeroSection />
+              <CommitmentSection />
             </div>
           ) : (
-            searchResults
+            <div className="bg-[#ffffff] h-dvh">{searchResults}</div>
           )}
         </main>
 
