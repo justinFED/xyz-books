@@ -7,6 +7,7 @@ import CommitmentSection from "./components/CommitmentSection/CommitmentSection"
 import ExploreBooks from "./components/ExploreBooks/ExploreBooks";
 import ShopUs from "./components/ExploreBooks/ShopUs";
 import Testimonial from "./components/ExploreBooks/Testimonial";
+import FAQ from "./components/FAQ/FAQ";
 
 function App() {
   const [searchResults, setSearchResults] = useState(null);
@@ -35,6 +36,7 @@ function App() {
                 <ExploreBooks />
                 <ShopUs />
                 <Testimonial />
+                <FAQ />
               </div>
             </div>
           ) : (

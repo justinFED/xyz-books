@@ -14,19 +14,18 @@ function Testimonial() {
             <p className="text-2xl">Binance</p>
           </div>
         </div>
-        
-        <div className="bg-[#4099f5] w-9/12 text-white  mt-24 container mx-auto p-16 rounded-2xl" 
-        style={{ boxShadow: '0px -48px 0px -22px rgba(217, 234, 252, 255)' }}>
 
-           
+        <div
+          className="bg-[#4099f5] w-9/12 text-white  mt-24 container mx-auto p-16 rounded-2xl"
+          style={{ boxShadow: "0px -48px 0px -22px rgba(217, 234, 252, 255)" }}
+        >
           <div className=" flex items-center justify-center ">
             <img
               src={User}
               alt="Image 1"
               className="w-[120px] h-auto absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-            />    
+            />
           </div>
-         
 
           <div className="text-2xl leading-relaxed mt-8 text-center items-center flex flex-col space-y-14">
             <p>
