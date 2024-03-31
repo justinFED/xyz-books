@@ -27,7 +27,7 @@ function HeroSection() {
         <div className="flex items-center justify-center md:w-1/2">
           <img
             src={herosectionImage}
-            alt="Textbooks"
+            alt="Image"
             className="object-cover mt-4 md:mt-0 w-full h-full"
           />
         </div>

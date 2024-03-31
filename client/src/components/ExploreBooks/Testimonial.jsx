@@ -4,9 +4,9 @@ import Star from "../../assets/star.svg";
 
 function Testimonial() {
   return (
-    <section className="   w-full h-screen py-8 md:py-16 ">
-      <div className="   container px-14 mx-auto flex flex-col items-center justify-center md:flex md:justify-center">
-        <div className="  flex flex-col items-center justify-center ">
+    <section className="w-full h-screen py-8 md:py-16 ">
+      <div className="container px-14 mx-auto flex flex-col items-center justify-center md:flex md:justify-center">
+        <div className="flex flex-col items-center justify-center ">
           <h1 className="text-3xl font-bold">Andrew Santellan</h1>
           <p className="text-lg text-[#63cef5]">Product Manager, Binance</p>
           <div className="flex items-center space-x-2 mt-7 text-gray-500">
@@ -22,7 +22,7 @@ function Testimonial() {
           <div className=" flex items-center justify-center ">
             <img
               src={User}
-              alt="Image 1"
+              alt="User"
               className="w-[120px] h-auto absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             />
           </div>
@@ -39,7 +39,7 @@ function Testimonial() {
               est <br />
               Lorem ipsum dolor sit amet.
             </p>
-            <img src={Star} alt="Image 1" />
+            <img src={Star} alt="Star" />
           </div>
         </div>
       </div>

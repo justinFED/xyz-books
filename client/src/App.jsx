@@ -44,7 +44,6 @@ function App() {
             <div className="bg-[#ffffff]">{searchResults} </div>
           )}
         </main>
-
         <Footer />
       </div>
     </Router>
