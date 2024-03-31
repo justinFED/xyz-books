@@ -19,7 +19,7 @@ function HeroSection() {
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna.
           </p>
-          <button className="bg-[#6060f4] hover:bg-blue-700 text-white px-9 py-3 rounded-lg mt-4 focus:outline-none">
+          <button className="bg-[#6060f4] hover:bg-blue-700 text-white px-9 py-3 rounded-lg mt-8 focus:outline-none">
             Get Started >
           </button>
         </div>
