@@ -41,7 +41,7 @@ function App() {
               </div>
             </div>
           ) : (
-            <div className="bg-[#ffffff] h-dvh">{searchResults} </div>
+            <div className="bg-[#ffffff]">{searchResults} </div>
           )}
         </main>
 
