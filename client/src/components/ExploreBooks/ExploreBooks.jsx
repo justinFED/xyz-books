@@ -2,7 +2,6 @@ import Book1 from "../../assets/Book1.png";
 import Book2 from "../../assets/Book2.png";
 import Book3 from "../../assets/Book3.png";
 
-
 function ExploreBooks() {
   return (
     <section className="  w-full  md:py-16 ">
@@ -44,9 +43,6 @@ function ExploreBooks() {
             </div>
           </div>
         </div>
-
-
-  
       </div>
     </section>
   );
