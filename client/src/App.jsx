@@ -8,6 +8,7 @@ import ExploreBooks from "./components/ExploreBooks/ExploreBooks";
 import ShopUs from "./components/ExploreBooks/ShopUs";
 import Testimonial from "./components/ExploreBooks/Testimonial";
 import FAQ from "./components/FAQ/FAQ";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [searchResults, setSearchResults] = useState(null);
@@ -44,7 +45,8 @@ function App() {
           )}
         </main>
 
-        <footer className="bg-blue-500 text-center py-4">Footer</footer>
+        <Footer />
+
       </div>
     </Router>
   );
