@@ -3,6 +3,7 @@ import Path from "../../assets/Path.svg";
 import Facebook from "../../assets/facebook.svg";
 import Linkedin from "../../assets/Linkedin.svg";
 import Twitter from "../../assets/Twitter.svg";
+import ArrowBottom from "../../assets/Bottomarrow.svg";
 
 function Footer() {
   return (
@@ -16,11 +17,20 @@ function Footer() {
             sadipscing elitr, sed diam nonumy <br />
             eirmod
           </p>
-          <input
-            className="appearance-none bg-transparent border border-[#6060f4] rounded-3xl w-64 py-2  pl-4 text-gray-700 text-sm leading-tight focus:outline-none z-10"
-            type="text"
-            placeholder="Email Address"
-          />
+          <div className="relative">
+            <input
+              className="appearance-none bg-transparent border border-[#6060f4] rounded-3xl w-64 py-3 pl-4 pr-10 text-gray-700 text-sm leading-tight focus:outline-none z-10"
+              type="text"
+              placeholder="Email Address"
+            />
+            <div className="absolute inset-y-0 right-14 flex items-center pr-3">
+              <img
+                src={ArrowBottom}
+                alt="Icon"
+                className="w-4 h-4 transform -rotate-90"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Menu */}
