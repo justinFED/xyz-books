@@ -23,7 +23,7 @@ function App() {
         className="flex flex-col min-h-screen"
         style={{
           backgroundImage: searchResults ? "none" : `url(${backgroundImage})`,
-          backgroundSize: "100% 100%",
+          backgroundSize: "100% auto",
           backgroundRepeat: "no-repeat"
         }}
       >
