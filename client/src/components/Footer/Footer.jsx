@@ -7,7 +7,7 @@ import Twitter from "../../assets/Twitter.svg";
 function Footer() {
   return (
     <section className="w-full py-8 md:py-16 bg-white">
-      <div className="mx-16  justify-between flex ">
+      <div className="mx-20  justify-between flex flex-row">
         {/* Logo */}
         <div className=" flex flex-col   space-y-14">
           <img src={Logo} alt="Logo" className="w-[150px]" />
@@ -21,7 +21,6 @@ function Footer() {
             type="text"
             placeholder="Email Address"
           />
-          <p>© 2022 Brainly.</p>
         </div>
 
         {/* Menu */}
@@ -62,20 +61,24 @@ function Footer() {
         </div>
 
         <div className="flex flex-col py-4 ">
-          <div className="bg-blue-500 rounded-full p-6 ">
-            <img src={Path} alt="PathImage" className="w-8 h-8 " />
+          <div className="bg-[#5dd1fa] relative rounded-full p-5 left-1/2 top-3/4 transform -translate-x-1/2 -translate-y-1/2">
+            <img src={Path} alt="PathImage" className="w-9 h-9 " />
           </div>
+        </div>
+      </div>
 
-          <div className="flex">
-            <div className="bg-blue-500 rounded-full p-4 mr-2">
-              <img src={Facebook} alt="Facebook Logo" className="w-8 h-8 " />
-            </div>
-            <div className="bg-blue-500 rounded-full p-4 mr-2">
-              <img src={Linkedin} alt="LinkedIn Logo" className="w-8 h-8 " />
-            </div>
-            <div className="bg-blue-500 rounded-full p-4">
-              <img src={Twitter} alt="Twitter Logo" className="w-8 h-8 " />
-            </div>
+      <div className=" mx-20 mt-8 flex justify-between items-center">
+        <p>© 2022 Brainly.</p>
+
+        <div className="flex">
+          <div className="bg-[#f2f1ff] rounded-full p-4 mr-2">
+            <img src={Facebook} alt="Facebook Logo" className="w-5 h-5 " />
+          </div>
+          <div className="bg-[#f2f1ff] rounded-full p-4 mr-2">
+            <img src={Linkedin} alt="LinkedIn Logo" className="w-5 h-5 " />
+          </div>
+          <div className="bg-[#f2f1ff] rounded-full p-4">
+            <img src={Twitter} alt="Twitter Logo" className="w-5 h-5 " />
           </div>
         </div>
       </div>
