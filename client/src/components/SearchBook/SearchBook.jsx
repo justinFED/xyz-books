@@ -38,6 +38,7 @@ function SearchBook({ onSearch }) {
           </h1>
           <div className="w-full max-w-lg p-8 border rounded-md shadow-sm">
             <h2 className="text-xl font-semibold mb-2">{data.title}</h2>
+            <img src={data.image_url} alt="" className="mb-4" />
             <p>by {data.authors.split(", ").join(", ")}</p>
             <p>Edition: {data.edition}</p>
             <p>Price: PHP {data.price}</p>
