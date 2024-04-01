@@ -25,12 +25,12 @@ function SearchBook({ onSearch }) {
     try {
       setLoading(true);
       setError("");
-  
+
       const response = await fetch(`http://127.0.0.1:3000/books/${isbn}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-  
+
       const data = await response.json();
       onSearch(<SearchResult data={data} searchInput={searchInput} />);
     } catch (error) {
@@ -40,7 +40,6 @@ function SearchBook({ onSearch }) {
       setLoading(false);
     }
   };
-  
 
   useEffect(() => {
     if (searchInput.trim() !== "") {

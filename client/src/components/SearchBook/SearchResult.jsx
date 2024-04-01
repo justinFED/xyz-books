@@ -1,7 +1,7 @@
 function SearchResult({ data, searchInput }) {
   return (
     <div className="w-full  ">
-      <div className=" container py-12 mx-auto flex flex-col text-[#051a36]">
+      <div className=" container mb-16 mx-auto flex flex-col text-[#051a36]">
         <h1 className="text-4xl mb-4 w-full py-8 font-bold ">Search Result</h1>
 
         <div className=" flex flex-row space-x-36">
