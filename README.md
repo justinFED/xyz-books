@@ -29,12 +29,12 @@ To get started with the XYZ Books project, follow these steps:
 
 1. **Clone the Repository**:
    ``` bash
-    git clone https://github.com/your-username/xyz-books.git
+   git clone https://github.com/your-username/xyz-books.git
    ```
    
 2. **Navigate to Client Side**: 
    ``` bash
-     cd client
+   cd client
    ```
 
 3. **Install Dependencies**:
