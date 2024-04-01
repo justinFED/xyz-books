@@ -28,14 +28,14 @@ As a full-stack engineer, you are encouraged to contribute to both the frontend 
 To get started with the XYZ Books project, follow these steps:
 
 1. **Clone the Repository**:
-  ``` bash
-  git clone https://github.com/your-username/xyz-books.git
-  ```
-
+   ``` bash
+    git clone https://github.com/your-username/xyz-books.git
+   ```
+   
 2. **Navigate to Client Side**: 
-  ``` bash
+   ``` bash
   cd client
-  ```
+   ``
 
 4. **Install Dependencies**:
    ``` bash
