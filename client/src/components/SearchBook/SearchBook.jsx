@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchIcon from "../../assets/Icon-feather-search.svg";
+import SearchResult from "./SearchResult";
 
 function SearchBook({ onSearch }) {
   const [searchInput, setSearchInput] = useState("");
@@ -24,37 +25,14 @@ function SearchBook({ onSearch }) {
     try {
       setLoading(true);
       setError("");
-
+  
       const response = await fetch(`http://127.0.0.1:3000/books/${isbn}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
+  
       const data = await response.json();
-      onSearch(
-        <div className="container mx-auto flex flex-col justify-center place-items-start ">
-          <h1 className="text-3xl mb-4  w-full py-8 font-bold">
-            Search Result
-          </h1>
-          <div className="w-full max-w-lg p-8 border rounded-md shadow-sm">
-            <h2 className="text-xl font-semibold mb-2">{data.title}</h2>
-            <img src={data.image_url} alt="" className="mb-4" />
-            <p>by {data.authors.split(", ").join(", ")}</p>
-            <p>Edition: {data.edition}</p>
-            <p>Price: PHP {data.price}</p>
-            <p>
-              ISBN:{" "}
-              {searchInput.length === 10
-                ? data.isbn_13
-                : searchInput.length === 13
-                ? data.isbn_13
-                : data.isbn_10}
-            </p>
-            <p>Publication Year: {data.publication_year}</p>
-            <p>Publisher: {data.publisher}</p>
-          </div>
-        </div>
-      );
+      onSearch(<SearchResult data={data} searchInput={searchInput} />);
     } catch (error) {
       console.error("Error fetching book data:", error);
       setError("Invalid ISBN");
@@ -62,6 +40,7 @@ function SearchBook({ onSearch }) {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     if (searchInput.trim() !== "") {
