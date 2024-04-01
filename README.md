@@ -30,4 +30,28 @@ To get started with the XYZ Books project, follow these steps:
 1. **Clone the Repository**:
    git clone https://github.com/your-username/xyz-books.git
 
+2. **Navigate to Client Side**: cd client
+
+3. **Install Dependencies**: npm install
+
+4. **Start Development Server**: npm run dev
+
+5. **Navigate to Server Side**: cd ../server
+
+6. **Install Dependencies**: bundle install
+
+7. **Start Server**: rails s
+
+## Feedback
+
+We welcome any feedback or suggestions for improving the XYZ Books project. Feel free to open an issue on GitHub or reach out to the project maintainers with your ideas.
+
+Happy coding! 🚀
+
+
+
+
+
+
+
 
