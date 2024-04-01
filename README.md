@@ -31,17 +31,31 @@ To get started with the XYZ Books project, follow these steps:
   ``` bash
   git clone https://github.com/your-username/xyz-books.git
   ```
-2. **Navigate to Client Side**: cd client
 
-3. **Install Dependencies**: npm install
+2. **Navigate to Client Side**: 
+  ``` bash
+  cd client
+  ```
 
-4. **Start Development Server**: npm run dev
+4. **Install Dependencies**:
+   ``` bash
+   npm install
 
-5. **Navigate to Server Side**: cd ../server
+6. **Start Development Server**: npm run dev
+   ``` bash
+   npm run dev
+   
+8. **Navigate to Server Side**: cd ../server
+   ``` bash
+   cd ../server
 
-6. **Install Dependencies**: bundle install
+10. **Install Dependencies**: bundle install
+    ``` bash
+    bundle install
 
-7. **Start Server**: rails s
+12. **Start Server**: rails s
+    ``` bash
+    rails s
 
 ## Feedback
 
