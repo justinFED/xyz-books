@@ -42,22 +42,22 @@ To get started with the XYZ Books project, follow these steps:
    npm install
    ```
 
-4. **Start Development Server**: npm run dev
+4. **Start Development Server**:
    ``` bash
    npm run dev
    ```
    
-5. **Navigate to Server Side**: cd ../server
+5. **Navigate to Server Side**:
    ``` bash
    cd ../server
    ```
 
-6. **Install Dependencies**: bundle install
+6. **Install Dependencies**:
     ``` bash
     bundle install
     ```
 
-7. **Start Server**: rails s
+7. **Start Server**:
     ``` bash
     rails s
     ```
