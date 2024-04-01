@@ -34,7 +34,7 @@ To get started with the XYZ Books project, follow these steps:
    
 2. **Navigate to Client Side**: 
    ``` bash
-  cd client
+     cd client
    ```
 
 3. **Install Dependencies**:
