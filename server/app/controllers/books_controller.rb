@@ -10,6 +10,10 @@ class BooksController < ApplicationController
     end
   end
   
+
+
+  private
+
   def convert_isbn
     isbn = params[:isbn]
     converted_isbn = if valid_isbn13?(isbn)
@@ -22,8 +26,6 @@ class BooksController < ApplicationController
 
     render json: { converted_isbn: converted_isbn }, status: :ok
   end
-
-  private
 
   def valid_isbn10?(isbn)
     return false unless isbn.match?(/^\d{1}-\d{3}-\d{5}-[\dX]{1}$/)
@@ -94,7 +96,8 @@ class BooksController < ApplicationController
       publication_year: book.publication_year,
       publisher: publisher_name,
       edition: book.edition,
-      price: price
+      price: price,
+      image_url: book.image_url
     }, status: :ok
   end
 end
