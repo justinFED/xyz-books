@@ -36,41 +36,41 @@ function Footer() {
         {/* Menu */}
         <div className=" flex flex-col  py-4  leading-9">
           <h1 className="font-bold text-2xl">Menu</h1>
-          <ul className="mt-4">
-            <li>Shop All</li>
-            <li>About Us</li>
-            <li>Community</li>
-            <li>FAQs</li>
+          <ul className="mt-4 cursor-pointer">
+            <li className="hover:underline">Shop All</li>
+            <li className="hover:underline">About Us</li>
+            <li className="hover:underline">Community</li>
+            <li className="hover:underline">FAQs</li>
           </ul>
         </div>
 
         {/* Support */}
         <div className=" flex flex-col  py-4  leading-9">
-          <h1 className="font-bold text-2xl">Support</h1>
-          <ul className="mt-4">
-            <li>Shipping & Returns</li>
-            <li>Help & FAQ</li>
-            <li>Terms & Condition</li>
-            <li>Privacy Policy</li>
-            <li>Contact</li>
-            <li>Login</li>
+          <h1 className="font-bold text-2xl ">Support</h1>
+          <ul className="mt-4 cursor-pointer">
+            <li className="hover:underline">Shipping & Returns</li>
+            <li className="hover:underline">Help & FAQ</li>
+            <li className="hover:underline">Terms & Condition</li>
+            <li className="hover:underline">Privacy Policy</li>
+            <li className="hover:underline">Contact</li>
+            <li className="hover:underline">Login</li>
           </ul>
         </div>
 
         {/* Resources */}
         <div className=" flex flex-col  py-4  leading-9">
           <h1 className="font-bold text-2xl">Menu</h1>
-          <ul className="mt-4">
-            <li>Shipping & Returns</li>
-            <li>Help & FAQ</li>
-            <li>Terms & Condition</li>
-            <li>Privacy Policy</li>
-            <li>Contact</li>
-            <li>Login</li>
+          <ul className="mt-4 cursor-pointer">
+            <li className="hover:underline">Shipping & Returns</li>
+            <li className="hover:underline">Help & FAQ</li>
+            <li className="hover:underline">Terms & Condition</li>
+            <li className="hover:underline">Privacy Policy</li>
+            <li className="hover:underline">Contact</li>
+            <li className="hover:underline">Login</li>
           </ul>
         </div>
 
-        <div className="flex flex-col py-4 ">
+        <div className="flex flex-col py-4 cursor-pointer">
           <div className="bg-[#5dd1fa] relative rounded-full p-5 left-1/2 top-3/4 transform -translate-x-1/2 -translate-y-1/2">
             <img src={Path} alt="PathImage" className="w-9 h-9 " />
           </div>
@@ -80,7 +80,7 @@ function Footer() {
       <div className=" mx-20 mt-8 flex justify-between items-center">
         <p>© 2022 Brainly.</p>
 
-        <div className="flex">
+        <div className="flex cursor-pointer">
           <div className="bg-[#f2f1ff] rounded-full p-4 mr-2">
             <img src={Facebook} alt="Facebook Logo" className="w-5 h-5 " />
           </div>

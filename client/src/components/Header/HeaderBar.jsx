@@ -39,7 +39,7 @@ function HeaderBar({ onSearch }) {
               <img src={Icon} alt="Icon" />
               En
             </a>
-            <button className="bg-[#6060f4] p-3 text-white rounded-lg w-32 font-semibold ">
+            <button className="bg-[#6060f4] p-3 text-white rounded-lg w-32 font-semibold hover:bg-blue-700">
               Contact
             </button>
           </div>
