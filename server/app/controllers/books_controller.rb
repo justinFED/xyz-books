@@ -25,7 +25,7 @@ class BooksController < ApplicationController
 
   def render_book_info(book)
     authors = book.authors.map(&:full_name).join(', ')
-    publisher_name = book.publisher&.name
+    publisher_name = book.publisher.name
     price = book.list_price.to_i.to_s
 
     render json: {
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
       isbn_13: book.isbn_13,
       isbn_10: book.isbn_10,
       publication_year: book.publication_year,
-      publisher: publisher_name,
+      publisher: publisher_name,  
       edition: book.edition,
       price: price,
       image_url: book.image_url
