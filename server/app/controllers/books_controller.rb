@@ -6,25 +6,57 @@ class BooksController < ApplicationController
     if book
       render_book_info(book)
     else
-      render json: { message: "Book not found" }, status: :not_found
+      render_not_found
     end
   end
-  
-
-
-  private
 
   def convert_isbn
     isbn = params[:isbn]
-    converted_isbn = if valid_isbn13?(isbn)
-                      convert_to_isbn10(isbn)
-                    elsif valid_isbn10?(isbn)
-                      convert_to_isbn13(isbn)
-                    else
-                      return render json: { message: "Invalid ISBN" }, status: :bad_request
-                    end
+    converted_isbn = convert_isbn_format(isbn)
 
-    render json: { converted_isbn: converted_isbn }, status: :ok
+    if converted_isbn
+      render json: { converted_isbn: converted_isbn }, status: :ok
+    else
+      render_invalid_isbn
+    end
+  end
+
+  private
+
+  def render_book_info(book)
+    authors = book.authors.map(&:full_name).join(', ')
+    publisher_name = book.publisher&.name
+    price = book.list_price.to_i.to_s
+
+    render json: {
+      title: book.title,
+      authors: authors,
+      isbn_13: book.isbn_13,
+      isbn_10: book.isbn_10,
+      publication_year: book.publication_year,
+      publisher: publisher_name,
+      edition: book.edition,
+      price: price,
+      image_url: book.image_url
+    }, status: :ok
+  end
+
+  def render_not_found
+    render json: { message: "Book not found" }, status: :not_found
+  end
+
+  def render_invalid_isbn
+    render json: { message: "Invalid ISBN" }, status: :bad_request
+  end
+
+  def convert_isbn_format(isbn)
+    if valid_isbn13?(isbn)
+      convert_to_isbn10(isbn)
+    elsif valid_isbn10?(isbn)
+      convert_to_isbn13(isbn)
+    else
+      nil
+    end
   end
 
   def valid_isbn10?(isbn)
@@ -35,7 +67,6 @@ class BooksController < ApplicationController
     sum % 11 == 0
   end
   
-
   def valid_isbn13?(isbn)
     isbn = isbn.delete('^0-9')
     return false unless isbn.match?(/^\d{13}$/)  
@@ -49,10 +80,10 @@ class BooksController < ApplicationController
     return unless valid_isbn10?(isbn_10)
     
     isbn_13_prefix = "978" + isbn_10.delete('-')[0..8]
-  check_digit = isbn_13_prefix.chars.each_with_index.sum { |c, i| c.to_i * (i.even? ? 1 : 3) }
-  check_digit = (10 - (check_digit % 10)) % 10
-  check_digit = 'X' if check_digit == 10 
-  converted_isbn = isbn_13_prefix + check_digit.to_s
+    check_digit = isbn_13_prefix.chars.each_with_index.sum { |c, i| c.to_i * (i.even? ? 1 : 3) }
+    check_digit = (10 - (check_digit % 10)) % 10
+    check_digit = 'X' if check_digit == 10 
+    converted_isbn = isbn_13_prefix + check_digit.to_s
     
     if isbn_10[2] == '8'
       converted_isbn = converted_isbn.insert(3, '-').insert(5, '-').insert(12, '-').insert(15, '-')  # Adjust hyphen placement for ISBN10 pattern with 5th digit 8
@@ -81,23 +112,5 @@ class BooksController < ApplicationController
     end
     
     converted_isbn
-  end
-  
-  def render_book_info(book)
-    authors = book.authors.map(&:full_name).join(', ')
-    publisher_name = book.publisher ? book.publisher.name : nil
-    price = book.list_price.to_i.to_s
-
-    render json: {
-      title: book.title,
-      authors: authors,
-      isbn_13: book.isbn_13,
-      isbn_10: book.isbn_10,
-      publication_year: book.publication_year,
-      publisher: publisher_name,
-      edition: book.edition,
-      price: price,
-      image_url: book.image_url
-    }, status: :ok
   end
 end
