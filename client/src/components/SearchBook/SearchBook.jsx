@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchIcon from "../../assets/Icon-feather-search.svg";
 import SearchResult from "./SearchResult";
@@ -11,14 +11,9 @@ function SearchBook({ onSearch }) {
 
   const isValidISBN = (isbn) => {
     const isbnDigitsOnly = isbn.replace(/-/g, "");
-    if (isbnDigitsOnly.length === 10 || isbnDigitsOnly.length === 13) {
-      if (isbnDigitsOnly.length === 10) {
-        return /^[0-9]{9}[0-9X]$/i.test(isbnDigitsOnly);
-      } else {
-        return /^[0-9]+$/i.test(isbnDigitsOnly);
-      }
-    }
-    return false;
+    const isValidLength = isbnDigitsOnly.length === 10 || isbnDigitsOnly.length === 13;
+    const isValidFormat = isbnDigitsOnly.length === 10 ? /^[0-9]{9}[0-9X]$/i.test(isbnDigitsOnly) : /^[0-9]+$/i.test(isbnDigitsOnly);
+    return isValidLength && isValidFormat;
   };
 
   const fetchBookData = async (isbn) => {
@@ -50,10 +45,10 @@ function SearchBook({ onSearch }) {
     }
   }, [searchInput]);
 
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async () => {
     try {
       setError("");
-      let isbn = searchInput.trim();
+      const isbn = searchInput.trim();
       if (!isValidISBN(isbn)) {
         setError("Invalid ISBN");
         onSearch(null);
@@ -64,7 +59,7 @@ function SearchBook({ onSearch }) {
       console.error("Error fetching book data:", error);
       setError("An error occurred while fetching book data.");
     }
-  };
+  }, [searchInput, onSearch, isValidISBN, fetchBookData]);
 
   return (
     <div>
