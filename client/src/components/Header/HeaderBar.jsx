@@ -44,7 +44,7 @@ function HeaderBar({ onSearch }) {
             </button>
           </div>
         </nav>
-        <div className="container  px-4 mx-auto flex justify-end items-end gap-4 ">
+        <div className="container  px-4 mx-auto flex justify-end items-end gap-2 ">
           <p className="font-[caveat] text-[#5ed0f9] origin-bottom -rotate-12 text-lg">
             Inquire us now to <br /> avail discounts!
           </p>
