@@ -39,6 +39,6 @@ Welcome to the XYZ Books project repository! This project aims to develop an app
     ```
 
 4. **Start Server**:
-  ``` bash
-  rails s
-  ```
+    ``` bash
+    rails s
+    ```
