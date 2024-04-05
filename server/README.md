@@ -1,24 +1,44 @@
-# README
+# XYZ Books
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the XYZ Books project repository! This project aims to develop an application that facilitates the retrieval of information from students, college textbooks, and other course materials. The application provides functionalities such as displaying applicable product data (e.g., authors, publishers) and converting International Standard Book Numbers (ISBNs) to and from different formats.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+**Required Ruby Version**:
+  ``` bash
+  3.2.0
+  ```
 
-* System dependencies
+**Required Rails Version**:
+  ``` bash
+  7.1.3
+  ```
 
-* Configuration
+## Project Setup
 
-* Database creation
+6. **Go to server folder**:
+    ``` bash
+    cd server
+    ```
 
-* Database initialization
+6. **Install Dependencies**:
+    ``` bash
+    bundle install
+    ```
 
-* How to run the test suite
+7. **Start Server**:
+   ``` bash
+   # Create Database
+   rails db:create
 
-* Services (job queues, cache servers, search engines, etc.)
+   # Migration
+   rails db:migrate
 
-* Deployment instructions
+   # Seeding
+   rails db:seed
+   ```
 
-* ...
+7. **Start Server**:
+    ``` bash
+    rails s
+    ```
