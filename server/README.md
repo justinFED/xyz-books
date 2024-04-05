@@ -16,17 +16,17 @@ Welcome to the XYZ Books project repository! This project aims to develop an app
 
 ## Project Setup
 
-6. **Go to server folder**:
-    ``` bash
-    cd server
-    ```
+1. **Go to server folder**:
+   ``` bash
+   cd server
+   ```
 
-6. **Install Dependencies**:
-    ``` bash
-    bundle install
-    ```
+2. **Install Dependencies**:
+   ``` bash
+   bundle install
+   ```
 
-7. **Start Server**:
+3. **Start Server**:
    ``` bash
    # Create Database
    rails db:create
@@ -36,9 +36,9 @@ Welcome to the XYZ Books project repository! This project aims to develop an app
 
    # Seeding
    rails db:seed
-   ```
+  ```
 
-7. **Start Server**:
-    ``` bash
-    rails s
-    ```
+4. **Start Server**:
+  ``` bash
+  rails s
+  ```
