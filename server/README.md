@@ -36,7 +36,7 @@ Welcome to the XYZ Books project repository! This project aims to develop an app
 
    # Seeding
    rails db:seed
-  ```
+    ```
 
 4. **Start Server**:
   ``` bash
